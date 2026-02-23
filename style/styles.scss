@@ -1,19 +1,22 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background-image: url('./assets/img/background.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-image: url('../img/background.webp');
+  background-size: 100% 100%;
+
+  @include mq('desktop') {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 }
+
 a {
   text-decoration: none;
   color: $colorTextLink;
@@ -115,6 +118,7 @@ p {
   }
   &__img {
     position: absolute;
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -205,6 +209,9 @@ p {
       font-size: 17px;
     }
   }
+  &__price-sum {
+    display: inline-block;
+  }
   &__price,
   &__currency {
     font-size: 24px;
@@ -221,6 +228,7 @@ p {
   }
   &__currency {
     color: $colorTextValuePrice;
+    font-size: 23px;
     font-weight: 400;
     font-family: 'Roboto';
   }
@@ -273,4 +281,8 @@ p {
     line-height: 21px;
     font-weight: 700;
   }
+}
+
+.hidden {
+  display: none;
 }
